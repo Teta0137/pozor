@@ -83,6 +83,10 @@
             margin-top: 30px;
             color: #666;
         }
+
+        .block { 
+            width: 70%; margin: 0 auto; 
+        }
     </style>
 </head>
 <body>
@@ -121,9 +125,25 @@
             <img src="pozor.jpg" alt="Позорный стример" class="site-image">
         </section>
     </main>
-    
+     <div class="navigation">
+                <p style="text-align: center; font-weight: bold;">Это тест флэш плеера:</p>
+     </div>
+
+     <div class="block">
+<object>
+    width="800" 
+    height="600" 
+    type="application/x-shockwave-flash"
+    data="game.swf">
+    <param name="movie" value="game.swf">
+    <param name="quality" value="high">
+    <param name="allowFullScreen" value="true">
+</object>
+</div>
+
     <footer>
         <address>© Teta0137 2025</address>
     </footer>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </body>
 </html>
