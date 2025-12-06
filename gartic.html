@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гартик переходник</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 { color: #8F61E2; }
+        .twitch-link {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 8px 15px;
+            background-color: #9147ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        hr { border: 0; height: 1px; background-color: #ddd; margin: 20px 0; }
+        .navigation { text-align: center; margin: 30px 0; }
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 6px 12px;
+            color: #8F61E2;
+            text-decoration: none;
+            border: 1px solid #8F61E2;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .nav-link:hover { background-color: #8F61E2; color: white; }
+        .site-image { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 8px; }
+        footer { text-align: center; margin-top: 30px; color: #666; }
+
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            inset: 0; 
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal { background: white; padding: 20px; border-radius: 10px; max-width: 360px; width: 90%; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .modal h3 { margin-top: 0; }
+        .modal button { margin-top: 12px; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Тут собранны самые позорные гифки всего гартикфона</h1>
+        <div class="navigation">
+                <p style="text-align:center; font-weight:bold;">Даты:</p>
+                <div>
+                    <button class="nav-link" type="button" onclick="openImportant()">ВАЖНАЯ КНОПКА</button>
+                </div>
+                </div>
+    </header>
+
+    <hr>
+
+    <main>
+        <section>
+             <div class="navigation">
+                    <button class="nav-link" type="button" onclick="openDate()">06.12.2025</button>
+                </div>
+
+            <img src="iphone.jpg" alt="Позорный стример" class="site-image">
+        </section>
+    </main>
+
+    <div id="modalImportant" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="importantTitle">
+        <div class="modal" role="document">
+            <h3 id="importantTitle">❕СРОЧНО❕</h3>
+            <p>У ЧАРЫ И ЕЁ СЕСТРЫ МАЛЕНЬКИЕ РУЧКИ</p>
+            <button type="button" onclick="closeImportant()">Я знаю</button>
+        </div>
+    </div>
+
+   
+    <div id="modalDate" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="dateTitle">
+        <div class="modal" role="document">
+            <h3 id="dateTitle">Ещё не готово</h3>
+            <p>Скоро будет</p>
+            <button type="button" onclick="closeDate()">Закрыть</button>
+        </div>
+    </div>
+
+<div class="navigation">
+                <div>
+                    <a href="index.html" class="nav-link">Нa главную</a>
+                </div>
+            </div>
+
+    <footer>
+        <p>© Тета-лоботряс 2025</p>
+    </footer>
+
+    <script>
+
+        function openImportant() {
+            const el = document.getElementById('modalImportant');
+            el.style.display = 'flex';
+            el.setAttribute('aria-hidden', 'false');
+        }
+        function closeImportant() {
+            const el = document.getElementById('modalImportant');
+            el.style.display = 'none';
+            el.setAttribute('aria-hidden', 'true');
+        }
+
+        function openDate() {
+            const el = document.getElementById('modalDate');
+            el.style.display = 'flex';
+            el.setAttribute('aria-hidden', 'false');
+        }
+        function closeDate() {
+            const el = document.getElementById('modalDate');
+            el.style.display = 'none';
+            el.setAttribute('aria-hidden', 'true');
+        }
+      
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.style.display = 'none';
+                e.target.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImportant();
+                closeDate();
+            }
+        });
+    </script>
+</body>
+</html>
